@@ -1,0 +1,50 @@
+## My PHP syntax file
+##
+syntax "php" "\.php[2345s~]?$" "\.php|\.inc$"
+
+# 2015-Jun-04	PAL	-Added header to accommodate the #!/usr/bin/env php shebang
+header "^#!.*php[2345]?$"
+
+## php markings
+color brightred "(<\?(php)?|\?>)"
+
+## variables - 2014-May-03 - PAL
+#icolor magenta "\$\{?[a-zA-Z_0-9]+\}?"
+icolor red "\$\{?[a-zA-Z_0-9]+\}?"
+
+## functions
+# color white "\<[a-z_]*\("
+color brightblue "\<[a-z_]*\("
+
+## types
+color green "\<(var|float|global|double|bool|char|int|enum|const)\>"
+
+## structure
+color brightmagenta "\<(class|new|private|public|function|for|foreach|if|while|do|else|elseif|case|default|switch)\>"
+# color brightyellow "\<(class|new|private|public|function|for|foreach|if|while|do|else|elseif|case|default|switch)\>"
+
+## control flow
+color magenta "\<(goto|continue|break|return)\>"
+
+## strings
+color brightmagenta "<[^=       ]*>" ""(\.|[^"])*""
+# color brightyellow "<[^=       ]*>" ""(\.|[^"])*""
+
+## comments
+# 2015-Jun-04	PAL	-Copied cyan for # comments from sh.nanorc
+color cyan "(^|[[:space:]])#.*$"
+color green "^//.*"
+color green " //.*"
+color green "//[ ].*"
+color green "\t//.*"
+color green start="/\*" end="\*/"
+#color brightblue "//.*"
+#color brightblue start="/\*" end="\*/"
+#color blue start="<" end=">"
+#color red "&[^;[[:space:]]]*;"
+
+## ToDo
+color brightred "ToDo:"
+
+## Trailing whitespace
+color ,green "[[:space:]]+$"
